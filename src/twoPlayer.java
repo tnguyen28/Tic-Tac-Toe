@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public class twoPlayer {
-    private JFrame f = new JFrame("2-player");
+    private JFrame f = new JFrame("2-player mode");
 
     public twoPlayer() {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
