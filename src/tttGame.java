@@ -27,11 +27,16 @@ public class tttGame{
         gamePanel.add(start2player);
 
         JButton startComputer = new JButton("Start Computer game");
+        startComputer.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                mainWindow.dispose();
+                new computerPlayer();
+            }
+        });
         gamePanel.add(startComputer);
     }
 
     public static void main(String[] args){
         new tttGame();
     }
-    
 }
