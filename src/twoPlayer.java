@@ -8,6 +8,17 @@ public class twoPlayer extends JFrame implements ActionListener{
     private JButton b1,b2,b3,b4,b5,b6,b7,b8,b9;
     private JLabel playerLabel;
     private String playerTurn = "x";
+
+    Boolean b1Check = false;
+    Boolean b2Check = false;
+    Boolean b3Check = false;
+    Boolean b4Check = false;
+    Boolean b5Check = false;
+    Boolean b6Check = false;
+    Boolean b7Check = false;
+    Boolean b8Check = false;
+    Boolean b9Check = false;
+
     public twoPlayer() {
 
         b1 = new JButton();
@@ -55,38 +66,77 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == b1){
-            Boolean b1Check = false;
-            if(b1Check){
+            if(b1Check == false){
                 buttonPressed(b1);
                 b1Check = true;
             } else {
-                
+                buttonAlreadyPressed();
             }
 
         }
         if(ae.getSource() == b2){
-           
+            if(b2Check == false){
+                buttonPressed(b1);
+                b2Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }     
         if(ae.getSource() == b3){
-          
+            if(b3Check == false){
+                buttonPressed(b1);
+                b3Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }     
         if(ae.getSource() == b4){
-       
+            if(b4Check == false){
+                buttonPressed(b1);
+                b4Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }     
         if(ae.getSource() == b5){
-           
+            if(b5Check == false){
+                buttonPressed(b1);
+                b5Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }     
         if(ae.getSource() == b6){
-           
+            if(b6Check == false){
+                buttonPressed(b1);
+                b6Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }     
         if(ae.getSource() == b7){
-       
+            if(b7Check == false){
+                buttonPressed(b1);
+                b7Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }     
         if(ae.getSource() == b8){
-     
+            if(b8Check == false){
+                buttonPressed(b1);
+                b8Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }     
         if(ae.getSource() == b9){
-
+            if(b9Check == false){
+                buttonPressed(b1);
+                b9Check = true;
+            } else {
+                buttonAlreadyPressed();
+            }
         }            
     }
     public void buttonPressed(JButton button){
@@ -98,9 +148,15 @@ public class twoPlayer extends JFrame implements ActionListener{
         if(playerTurn.equals("x")) {
             playerTurn = "o";
             playerLabel.setText("player o's turn");
+            JOptionPane.showMessageDialog(null, "player o's turn");
         } else if(playerTurn.equals("o")){
             playerTurn = "x";
-            playerLabel.setText("player x's turn");
+           playerLabel.setText("player x's turn");
+           JOptionPane.showMessageDialog(null, "player x's turn");
         }
+    }
+    public void buttonAlreadyPressed(){
+        //playerLabel.setText("This button has already been pressed");
+        JOptionPane.showMessageDialog(null, "This button has already been pressed.");
     }
 }
