@@ -21,7 +21,6 @@ public class tttGame{
             public void actionPerformed(ActionEvent ae) {
                 mainWindow.dispose();
                 new twoPlayer();
-              
             }
         });
         gamePanel.add(start2player);
