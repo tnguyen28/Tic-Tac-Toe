@@ -6,15 +6,17 @@ import java.io.*;
 public class tttGame{
     public tttGame() {
         JFrame mainWindow = new JFrame("Tic-Tac-Toe");
-        JLabel headerLabel = new JLabel("Welcome to Tic-Tac-Toe");
+        JLabel headerLabel = new JLabel("Welcome to Tic-Tac-Toe", SwingConstants.CENTER);
         JPanel gamePanel = new JPanel();
 
         mainWindow.setVisible(true);
         mainWindow.setSize(400, 400);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        gamePanel.setLayout(new GridLayout(3,1));
         mainWindow.add(gamePanel);
         gamePanel.add(headerLabel);
+        
 
         JButton start2player = new JButton("Start 2-player game");
         start2player.addActionListener(new ActionListener() {
