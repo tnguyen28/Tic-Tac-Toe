@@ -1,48 +1,106 @@
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
+import java.awt.event.*;
 
 import javax.swing.*;
 
-public class twoPlayer {
-    private JFrame f = new JFrame("Two player mode");
-
+public class twoPlayer extends JFrame implements ActionListener{
+   // private JFrame f = new JFrame("Two player mode");
+    private JButton b1,b2,b3,b4,b5,b6,b7,b8,b9;
+    private JLabel playerLabel;
+    private String playerTurn = "x";
     public twoPlayer() {
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = (JPanel)f.getContentPane();
-        panel.setLayout(new GridLayout(4,3,3,3));
+        b1 = new JButton();
+        b2 = new JButton();
+        b3 = new JButton();
+        b4 = new JButton();
+        b5 = new JButton();
+        b6 = new JButton();
+        b7 = new JButton();
+        b8 = new JButton();
+        b9 = new JButton();
 
-        JButton b1 = new JButton();
-        JButton b2 = new JButton();
-        JButton b3 = new JButton();
-        JButton b4 = new JButton();
-        JButton b5 = new JButton();
-        JButton b6 = new JButton();
-        JButton b7 = new JButton();
-        JButton b8 = new JButton();
-        JButton b9 = new JButton();
-        
-        JLabel l1 = new JLabel("Hello world");
-        l1.setForeground(Color.RED);
+        playerLabel = new JLabel();
+        playerLabel.setForeground(Color.RED);
 
-        panel.add(b1);
-        panel.add(b2);
-        panel.add(b3);
-        panel.add(b4);
-        panel.add(b5);
-        panel.add(b6);
-        panel.add(b7);
-        panel.add(b8);
-        panel.add(b9);
-        panel.add(l1);
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+
+        add(b1);
+        add(b2);
+        add(b3);
+        add(b4);
+        add(b5);
+        add(b6);
+        add(b7);
+        add(b8);
+        add(b9);
+        add(playerLabel);
 
         b1.setPreferredSize(new Dimension(100,100));
 
-        f.setSize(500,500);
-        f.getContentPane().setBackground(Color.BLACK);
-        
-        f.setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new GridLayout(4,3,3,3));
+        setSize(500,500);
+        getContentPane().setBackground(Color.BLACK);
+        setVisible(true);
 
+    }
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource() == b1){
+            Boolean b1Check = false;
+            if(b1Check){
+                buttonPressed(b1);
+                b1Check = true;
+            } else {
+                
+            }
+
+        }
+        if(ae.getSource() == b2){
+           
+        }     
+        if(ae.getSource() == b3){
+          
+        }     
+        if(ae.getSource() == b4){
+       
+        }     
+        if(ae.getSource() == b5){
+           
+        }     
+        if(ae.getSource() == b6){
+           
+        }     
+        if(ae.getSource() == b7){
+       
+        }     
+        if(ae.getSource() == b8){
+     
+        }     
+        if(ae.getSource() == b9){
+
+        }            
+    }
+    public void buttonPressed(JButton button){
+        button.setBackground(Color.BLUE);
+        button.setContentAreaFilled(false);
+        button.setOpaque(true);
+
+
+        if(playerTurn.equals("x")) {
+            playerTurn = "o";
+            playerLabel.setText("player o's turn");
+        } else if(playerTurn.equals("o")){
+            playerTurn = "x";
+            playerLabel.setText("player x's turn");
+        }
     }
 }
