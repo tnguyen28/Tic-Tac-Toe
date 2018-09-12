@@ -1,13 +1,18 @@
 import java.awt.*;
 import java.awt.event.*;
-
+import java.awt.image.*;
+import javax.imageio.*;
 import javax.swing.*;
+import java.io.*;
 
 public class twoPlayer extends JFrame implements ActionListener{
    // private JFrame f = new JFrame("Two player mode");
     private JButton b1,b2,b3,b4,b5,b6,b7,b8,b9;
     private JLabel playerLabel;
     private String playerTurn = "x";
+
+    String imageX = "src/redX.jpg";
+    String imageO = "src/blueO";
 
     Boolean b1Check = false;
     Boolean b2Check = false;
@@ -57,6 +62,8 @@ public class twoPlayer extends JFrame implements ActionListener{
 
         b1.setPreferredSize(new Dimension(100,100));
 
+        setBackground(Color.BLUE);
+        setForeground(Color.BLUE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(4,3,3,3));
         setSize(500,500);
@@ -76,7 +83,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }
         if(ae.getSource() == b2){
             if(b2Check == false){
-                buttonPressed(b1);
+                buttonPressed(b2);
                 b2Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -84,7 +91,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }     
         if(ae.getSource() == b3){
             if(b3Check == false){
-                buttonPressed(b1);
+                buttonPressed(b3);
                 b3Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -92,7 +99,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }     
         if(ae.getSource() == b4){
             if(b4Check == false){
-                buttonPressed(b1);
+                buttonPressed(b4);
                 b4Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -100,7 +107,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }     
         if(ae.getSource() == b5){
             if(b5Check == false){
-                buttonPressed(b1);
+                buttonPressed(b5);
                 b5Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -108,7 +115,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }     
         if(ae.getSource() == b6){
             if(b6Check == false){
-                buttonPressed(b1);
+                buttonPressed(b6);
                 b6Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -116,7 +123,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }     
         if(ae.getSource() == b7){
             if(b7Check == false){
-                buttonPressed(b1);
+                buttonPressed(b7);
                 b7Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -124,7 +131,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }     
         if(ae.getSource() == b8){
             if(b8Check == false){
-                buttonPressed(b1);
+                buttonPressed(b8);
                 b8Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -132,7 +139,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }     
         if(ae.getSource() == b9){
             if(b9Check == false){
-                buttonPressed(b1);
+                buttonPressed(b9);
                 b9Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -140,20 +147,32 @@ public class twoPlayer extends JFrame implements ActionListener{
         }            
     }
     public void buttonPressed(JButton button){
-        button.setBackground(Color.BLUE);
-        button.setContentAreaFilled(false);
-        button.setOpaque(true);
-
-
         if(playerTurn.equals("x")) {
+            changeXImage(button);
             playerTurn = "o";
             playerLabel.setText("player o's turn");
+
             JOptionPane.showMessageDialog(null, "player o's turn");
+
         } else if(playerTurn.equals("o")){
+            changeOImage(button);
             playerTurn = "x";
            playerLabel.setText("player x's turn");
+
            JOptionPane.showMessageDialog(null, "player x's turn");
+
         }
+    }
+    public void changeOImage(JButton b){
+
+    }
+    public void changeXImage(JButton b){
+        try {
+            b.setIcon(new ImageIcon(ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("redX.jpg"))));
+        } catch(IOException e){
+              e.printStackTrace();
+        }
+
     }
     public void buttonAlreadyPressed(){
         //playerLabel.setText("This button has already been pressed");
