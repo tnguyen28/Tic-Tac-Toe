@@ -62,8 +62,6 @@ public class twoPlayer extends JFrame implements ActionListener{
 
         b1.setPreferredSize(new Dimension(100,100));
 
-        setBackground(Color.BLUE);
-        setForeground(Color.BLUE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(4,3,3,3));
         setSize(500,500);
@@ -75,6 +73,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         if(ae.getSource() == b1){
             if(b1Check == false){
                 buttonPressed(b1);
+                getButtonImage(b1);
                 b1Check = true;
             } else {
                 buttonAlreadyPressed();
@@ -164,15 +163,42 @@ public class twoPlayer extends JFrame implements ActionListener{
         }
     }
     public void changeOImage(JButton b){
+        try{
+            java.net.URL imgURL = getClass().getResource("/images/blue.jpg");
+            ImageIcon icon = new ImageIcon(imgURL);
+            Image img = icon.getImage();
+            Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
+            icon = new ImageIcon(scaledImg);
+            b.setIcon(icon);
+            b.setBorder(BorderFactory.createEmptyBorder());
+        } catch(Exception e) {
+            e.printStackTrace();
+        
+        }
 
     }
     public void changeXImage(JButton b){
-        try {
-            b.setIcon(new ImageIcon(ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("redX.jpg"))));
-        } catch(IOException e){
-              e.printStackTrace();
+        // try {
+        //     b.setIcon(new ImageIcon(ImageIO.read(Thread.currentThread().getContextClassLoader().getResourceAsStream("redX.jpg"))));
+        // } catch(IOException e){
+        //       e.printStackTrace();
+        // }
+        try{
+            java.net.URL imgURL = getClass().getResource("/images/redX.jpg");
+            ImageIcon icon = new ImageIcon(imgURL);
+            Image img = icon.getImage();
+            Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
+            icon = new ImageIcon(scaledImg);
+            b.setIcon(icon);
+            b.setBorder(BorderFactory.createEmptyBorder());
+        } catch(Exception e) {
+            e.printStackTrace();
+        
         }
 
+    }
+    public void getButtonImage(JButton button){
+        System.out.println(button.getIcon());
     }
     public void buttonAlreadyPressed(){
         //playerLabel.setText("This button has already been pressed");
