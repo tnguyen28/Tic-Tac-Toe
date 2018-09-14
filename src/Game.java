@@ -4,35 +4,13 @@ public class Game {
     private static String[][] gameBoard = new String[3][3];
     private static int count = 0;
    // private Random piecePlacement = new Random();
-    private int r;
-    private int c;
-    
+
     public Game(){
-        // piecePlacement.ints(0,4);
-        // r = piecePlacement;
-        // c = piecePlacement;
+      //  gameBoard = gb;
     }
 
-    public void placeX(int row, int col){
-       gameBoard[row][col] = "X";
-       count++;
-       if (count > 4){
-        checkVictory("X", row, col);
-         }
-    }
-
-    public void placeO(int row, int col){
-        gameBoard[row][col] = "O";
-        count++;
-        if (count > 4){
-            checkVictory("O", row, col);
-        }
-    }
-
-    public boolean checkVictory(String lastPlayer, int r, int c){
+    public boolean checkVictory(){
         boolean victory = false;
-        if (lastPlayer.equals("X")){
-
             //Check diag
             if (gameBoard[1][1].equals("X")){
                 if(gameBoard[0][0].equals("X")){
@@ -106,8 +84,6 @@ public class Game {
                     }
                 }
             }
-        }
-        if (lastPlayer.equals("O")){
             //Check diag
             if (gameBoard[1][1].equals("O")){
                 if(gameBoard[0][0].equals("O")){
@@ -173,10 +149,7 @@ public class Game {
                     }
                 }
             }
-        }
-        else{
-            victory = false;
-        }
+
         return victory;
     }
 }
