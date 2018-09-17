@@ -78,13 +78,9 @@ public class twoPlayer extends JFrame implements ActionListener{
         getContentPane().setBackground(Color.BLACK);
         setVisible(true);
 
-        
     }
     //button interactions
     public void actionPerformed(ActionEvent ae) {
-        Game g = new Game();
-        count++;
-        g.checkVictory(gameBoard);
         if(ae.getSource() == b1){
             if(b1Check == false){
                 //places tile into logic game
@@ -97,13 +93,11 @@ public class twoPlayer extends JFrame implements ActionListener{
                     count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
-
                 buttonPressed(b1);
                 b1Check = true;
             } else {
                 messageHandler.buttonAlreadyPressed();
             }
-
 
         }
         if(ae.getSource() == b2){
@@ -251,9 +245,15 @@ public class twoPlayer extends JFrame implements ActionListener{
             }
         }
     }
+    public void checkForWinner(){
+
+    }
 
     //If a button is pressed, it changes the turn and shows an alert to see whose turn it is
     public void buttonPressed(JButton button){
+        Game g = new Game();
+        g.checkVictory(gameBoard);
+        
         if(playerTurn.equals("x")) {
             changeXImage(button);
             playerTurn = "o";
@@ -268,8 +268,9 @@ public class twoPlayer extends JFrame implements ActionListener{
 
          
            messageHandler.playerXMessage();
-
         }
+
+
     }
     //Changes the buttton's icon image to corresponding turn
     public void changeOImage(JButton b){
