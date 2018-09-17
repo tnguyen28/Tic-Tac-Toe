@@ -18,6 +18,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     String imageX = "src/redX.jpg";
     String imageO = "src/blueO";
 
+    //Checks if the tile has already been pressed
     Boolean b1Check = false;
     Boolean b2Check = false;
     Boolean b3Check = false;
@@ -30,6 +31,7 @@ public class twoPlayer extends JFrame implements ActionListener{
 
     public twoPlayer() {
 
+        //Allows players to click a tile to draw their turn
         b1 = new JButton();
         b2 = new JButton();
         b3 = new JButton();
@@ -40,9 +42,11 @@ public class twoPlayer extends JFrame implements ActionListener{
         b8 = new JButton();
         b9 = new JButton();
 
+        //shows what player turn it is
         playerLabel = new JLabel();
         playerLabel.setForeground(Color.RED);
 
+        //Allows button to take action when pressed
         b1.addActionListener(this);
         b2.addActionListener(this);
         b3.addActionListener(this);
@@ -53,6 +57,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         b8.addActionListener(this);
         b9.addActionListener(this);
 
+        //adds button to jframe
         add(b1);
         add(b2);
         add(b3);
@@ -64,6 +69,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         add(b9);
         add(playerLabel);
 
+        //sets the size for first button which defaults the others to the same size
         b1.setPreferredSize(new Dimension(100,100));
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,9 +77,14 @@ public class twoPlayer extends JFrame implements ActionListener{
         setSize(500,500);
         getContentPane().setBackground(Color.BLACK);
         setVisible(true);
+
+        
     }
+    //button interactions
     public void actionPerformed(ActionEvent ae) {
-      //  Game g = new Game();
+        Game g = new Game();
+        count++;
+        g.checkVictory(gameBoard);
         if(ae.getSource() == b1){
             if(b1Check == false){
                 //places tile into logic game
@@ -88,11 +99,11 @@ public class twoPlayer extends JFrame implements ActionListener{
                 }
 
                 buttonPressed(b1);
-               // getButtonImage(b1);
                 b1Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
+
 
         }
         if(ae.getSource() == b2){
@@ -110,7 +121,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b2);
                 b2Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
         }     
         if(ae.getSource() == b3){
@@ -128,7 +139,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b3);
                 b3Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
         }     
         if(ae.getSource() == b4){
@@ -146,7 +157,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b4);
                 b4Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
         }     
         if(ae.getSource() == b5){
@@ -164,7 +175,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b5);
                 b5Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
         }     
         if(ae.getSource() == b6){
@@ -182,7 +193,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b6);
                 b6Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
         }     
         if(ae.getSource() == b7){
@@ -200,7 +211,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b7);
                 b7Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
         }     
         if(ae.getSource() == b8){
@@ -218,7 +229,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b8);
                 b8Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
         }     
         if(ae.getSource() == b9){
@@ -236,27 +247,31 @@ public class twoPlayer extends JFrame implements ActionListener{
                 buttonPressed(b9);
                 b9Check = true;
             } else {
-                buttonAlreadyPressed();
+                messageHandler.buttonAlreadyPressed();
             }
-        }            
+        }
     }
+
+    //If a button is pressed, it changes the turn and shows an alert to see whose turn it is
     public void buttonPressed(JButton button){
         if(playerTurn.equals("x")) {
             changeXImage(button);
             playerTurn = "o";
             playerLabel.setText("player o's turn");
 
-            JOptionPane.showMessageDialog(null, "player o's turn");
+            messageHandler.playerYMessage();
 
         } else if(playerTurn.equals("o")){
             changeOImage(button);
             playerTurn = "x";
            playerLabel.setText("player x's turn");
 
-           JOptionPane.showMessageDialog(null, "player x's turn");
+         
+           messageHandler.playerXMessage();
 
         }
     }
+    //Changes the buttton's icon image to corresponding turn
     public void changeOImage(JButton b){
         try{
             java.net.URL imgURL = getClass().getResource("/images/blue.jpg");
@@ -287,11 +302,5 @@ public class twoPlayer extends JFrame implements ActionListener{
         }
 
     }
-    public void getButtonImage(JButton button){
-        System.out.println(button.getIcon());
-    }
-    public void buttonAlreadyPressed(){
-        //playerLabel.setText("This button has already been pressed");
-        JOptionPane.showMessageDialog(null, "This button has already been pressed.");
-    }
+
 }
