@@ -7,8 +7,11 @@ public class messageHandler {
     public static void playerYMessage(){
         JOptionPane.showMessageDialog(null, "player y's turn");
     }
-    public static void playerWonMessage(){
-
+    public static void playerXWonMessage(){
+        JOptionPane.showMessageDialog(null, "PLAYER X WINS");
+    }
+    public static void playerYWonMessage(){
+        JOptionPane.showMessageDialog(null, "PLAYER Y WINS");
     }
     public static void buttonAlreadyPressed(){
         JOptionPane.showMessageDialog(null, "This button has already been pressed.");
