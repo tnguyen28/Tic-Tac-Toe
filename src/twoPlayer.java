@@ -86,11 +86,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[0][0] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[0][0] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b1);
@@ -105,11 +103,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[0][1] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[0][1] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b2);
@@ -123,11 +119,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[0][2] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[0][2] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b3);
@@ -141,11 +135,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[1][0] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[1][0] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b4);
@@ -159,11 +151,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[1][1] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[1][1] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b5);
@@ -177,11 +167,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[1][2] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[1][2] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b6);
@@ -195,11 +183,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[2][0] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[2][0] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b7);
@@ -213,11 +199,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[2][1] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[2][1] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b8);
@@ -231,11 +215,9 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[2][2] = "x";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[2][2] = "o";
-                    count++;
                     System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b9);
@@ -245,17 +227,13 @@ public class twoPlayer extends JFrame implements ActionListener{
             }
         }
     }
-    public void checkForWinner(){
-
-    }
 
     //If a button is pressed, it changes the turn and shows an alert to see whose turn it is
     public void buttonPressed(JButton button){
-        Game g = new Game();
-        g.checkVictory(gameBoard);
-        
+        count++;
         if(playerTurn.equals("x")) {
             changeXImage(button);
+            checkForWinner();
             playerTurn = "o";
             playerLabel.setText("player o's turn");
 
@@ -263,15 +241,24 @@ public class twoPlayer extends JFrame implements ActionListener{
 
         } else if(playerTurn.equals("o")){
             changeOImage(button);
+            checkForWinner();
             playerTurn = "x";
            playerLabel.setText("player x's turn");
 
-         
            messageHandler.playerXMessage();
         }
 
 
     }
+    public void checkForWinner(){
+        Game g = new Game();
+        if(count >= 5){
+            g.checkVictory(gameBoard);
+        } else {
+            System.out.println("impossible to have a winner so far.");
+        }
+    }
+    
     //Changes the buttton's icon image to corresponding turn
     public void changeOImage(JButton b){
         try{
@@ -301,7 +288,5 @@ public class twoPlayer extends JFrame implements ActionListener{
             e.printStackTrace();
         
         }
-
     }
-
 }
