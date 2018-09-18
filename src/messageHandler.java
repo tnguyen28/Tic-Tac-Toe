@@ -5,15 +5,25 @@ public class messageHandler {
         JOptionPane.showMessageDialog(null, "player x's turn");
     }
     public static void playerYMessage(){
-        JOptionPane.showMessageDialog(null, "player y's turn");
+        JOptionPane.showMessageDialog(null, "player o's turn");
     }
-    public static void playerXWonMessage(){
-        JOptionPane.showMessageDialog(null, "PLAYER X WINS");
+    public static void playerXWonMessage(JFrame frame){
+        JOptionPane.showMessageDialog(null, "sike, PLAYER X WINS");
+        frame.dispose();
+        new tttGame();
     }
-    public static void playerYWonMessage(){
-        JOptionPane.showMessageDialog(null, "PLAYER Y WINS");
+    public static void playerYWonMessage(JFrame frame){
+        JOptionPane.showMessageDialog(null, "sike, PLAYER O WINS");
+        frame.dispose();
+        new tttGame();
+    }
+    public static void gameTie(JFrame frame){
+        JOptionPane.showMessageDialog(null, "TIE GAME");
+        frame.dispose();
+        new tttGame();
     }
     public static void buttonAlreadyPressed(){
         JOptionPane.showMessageDialog(null, "This button has already been pressed.");
     }
+    
 }
