@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.*;
 
 public class twoPlayer extends JFrame implements ActionListener{
-   // private JFrame f = new JFrame("Two player mode");
+    private JFrame playerFrame = new JFrame("Two player mode");
     private String[][] gameBoard = new String[3][3];
     private int count = 0;
 
@@ -30,6 +30,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     Boolean b9Check = false;
 
     public twoPlayer() {
+        populateBoard(gameBoard);
 
         //Allows players to click a tile to draw their turn
         b1 = new JButton();
@@ -58,25 +59,25 @@ public class twoPlayer extends JFrame implements ActionListener{
         b9.addActionListener(this);
 
         //adds button to jframe
-        add(b1);
-        add(b2);
-        add(b3);
-        add(b4);
-        add(b5);
-        add(b6);
-        add(b7);
-        add(b8);
-        add(b9);
-        add(playerLabel);
+        playerFrame.add(b1);
+        playerFrame.add(b2);
+        playerFrame.add(b3);
+        playerFrame.add(b4);
+        playerFrame.add(b5);
+        playerFrame.add(b6);
+        playerFrame.add(b7);
+        playerFrame.add(b8);
+        playerFrame.add(b9);
+        playerFrame.add(playerLabel);
 
         //sets the size for first button which defaults the others to the same size
         b1.setPreferredSize(new Dimension(100,100));
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new GridLayout(4,3,3,3));
-        setSize(500,500);
-        getContentPane().setBackground(Color.BLACK);
-        setVisible(true);
+        playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        playerFrame.setLayout(new GridLayout(4,3,3,3));
+        playerFrame.setSize(500,500);
+        playerFrame.getContentPane().setBackground(Color.BLACK);
+        playerFrame.setVisible(true);
 
     }
     //button interactions
@@ -233,19 +234,20 @@ public class twoPlayer extends JFrame implements ActionListener{
         count++;
         if(playerTurn.equals("x")) {
             changeXImage(button);
+            messageHandler.playerYMessage();
             checkForWinner();
             playerTurn = "o";
             playerLabel.setText("player o's turn");
 
-            messageHandler.playerYMessage();
+
 
         } else if(playerTurn.equals("o")){
             changeOImage(button);
+            messageHandler.playerXMessage();
             checkForWinner();
             playerTurn = "x";
            playerLabel.setText("player x's turn");
 
-           messageHandler.playerXMessage();
         }
 
 
@@ -253,9 +255,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     public void checkForWinner(){
         Game g = new Game();
         if(count >= 5){
-            g.checkVictory(gameBoard);
-        } else {
-            System.out.println("impossible to have a winner so far.");
+             g.checkVictory(gameBoard, playerFrame);
         }
     }
     
@@ -288,5 +288,17 @@ public class twoPlayer extends JFrame implements ActionListener{
             e.printStackTrace();
         
         }
+    }
+    public void populateBoard(String[][] board){
+        board[0][0]= "not used";
+        board[0][1]= "not used";
+        board[0][2]= "not used";
+        board[1][0]= "not used";
+        board[1][1]= "not used";
+        board[1][2]= "not used";
+        board[2][0]= "not used";
+        board[2][1]= "not used";
+        board[2][2]= "not used";
+        System.out.println("Board populated");
     }
 }
