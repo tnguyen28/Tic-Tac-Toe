@@ -234,7 +234,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         count++;
         if(playerTurn.equals("x")) {
             changeXImage(button);
-            messageHandler.playerYMessage();
+            messageHandler.playerOMessage();
             checkForWinner();
             playerTurn = "o";
             playerLabel.setText("player o's turn");
@@ -254,8 +254,12 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
     public void checkForWinner(){
         Game g = new Game();
-        if(count >= 5){
-             g.checkVictory(gameBoard, playerFrame);
+        if(count >= 5 && count != 9){
+             if(g.victor(gameBoard, playerFrame)){
+                 System.out.println("someone won");
+             }
+        } else if(count == 9){
+            messageHandler.gameTie(playerFrame);
         }
     }
     
@@ -300,5 +304,19 @@ public class twoPlayer extends JFrame implements ActionListener{
         board[2][1]= "not used";
         board[2][2]= "not used";
         System.out.println("Board populated");
+    }
+    public Boolean boardFull(){
+        if(b1Check == true 
+            && b2Check == true
+            && b3Check == true
+            && b4Check == true
+            && b5Check == true
+            && b6Check == true
+            && b7Check == true
+            && b8Check == true
+            && b9Check == true){
+            return true;
+        }
+        return false;
     }
 }

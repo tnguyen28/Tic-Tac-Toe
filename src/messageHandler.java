@@ -4,7 +4,7 @@ public class messageHandler {
     public static void playerXMessage(){
         JOptionPane.showMessageDialog(null, "player x's turn");
     }
-    public static void playerYMessage(){
+    public static void playerOMessage(){
         JOptionPane.showMessageDialog(null, "player o's turn");
     }
     public static void playerXWonMessage(JFrame frame){
@@ -12,7 +12,7 @@ public class messageHandler {
         frame.dispose();
         new tttGame();
     }
-    public static void playerYWonMessage(JFrame frame){
+    public static void playerOWonMessage(JFrame frame){
         JOptionPane.showMessageDialog(null, "sike, PLAYER O WINS");
         frame.dispose();
         new tttGame();
