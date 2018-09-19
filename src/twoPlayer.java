@@ -240,7 +240,7 @@ public class twoPlayer extends JFrame implements ActionListener{
              if(g.victor(gameBoard, playerFrame)){
                  System.out.println("someone won");
              }
-        } else if(count == 9){
+        } else if(count == 9 && !g.victor(gameBoard, playerFrame)){
             messageHandler.gameTie(playerFrame);
         }
     }
