@@ -15,8 +15,8 @@ public class twoPlayer extends JFrame implements ActionListener{
     private JLabel playerLabel;
     private String playerTurn = "x";
 
-    String imageX = "src/redX.jpg";
-    String imageO = "src/blueO";
+    String imageX = "/images/redX.jpg";
+    String imageO = "/images/blue.jpg";
 
     //Checks if the tile has already been pressed
     Boolean b1Check = false;
@@ -87,10 +87,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[0][0] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[0][0] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b1);
                 b1Check = true;
@@ -104,10 +102,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[0][1] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[0][1] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b2);
                 b2Check = true;
@@ -120,10 +116,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[0][2] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[0][2] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b3);
                 b3Check = true;
@@ -136,10 +130,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[1][0] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[1][0] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b4);
                 b4Check = true;
@@ -152,10 +144,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[1][1] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[1][1] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b5);
                 b5Check = true;
@@ -168,10 +158,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[1][2] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[1][2] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b6);
                 b6Check = true;
@@ -184,10 +172,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[2][0] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[2][0] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b7);
                 b7Check = true;
@@ -200,10 +186,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[2][1] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[2][1] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b8);
                 b8Check = true;
@@ -216,10 +200,8 @@ public class twoPlayer extends JFrame implements ActionListener{
                 //places tile into logic game
                 if(playerTurn.equals("x")){
                     gameBoard[2][2] = "x";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 } else if(playerTurn.equals("o")){
                     gameBoard[2][2] = "o";
-                    System.out.println(Arrays.deepToString(gameBoard));
                 }
                 buttonPressed(b9);
                 b9Check = true;
@@ -254,7 +236,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
     public void checkForWinner(){
         Game g = new Game();
-        if(count >= 5 && count != 9){
+        if(count >= 5 && count < 9){
              if(g.victor(gameBoard, playerFrame)){
                  System.out.println("someone won");
              }
@@ -266,7 +248,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     //Changes the buttton's icon image to corresponding turn
     public void changeOImage(JButton b){
         try{
-            java.net.URL imgURL = getClass().getResource("/images/blue.jpg");
+            java.net.URL imgURL = getClass().getResource(imageO);
             ImageIcon icon = new ImageIcon(imgURL);
             Image img = icon.getImage();
             Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
@@ -281,7 +263,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
     public void changeXImage(JButton b){
         try{
-            java.net.URL imgURL = getClass().getResource("/images/redX.jpg");
+            java.net.URL imgURL = getClass().getResource(imageX);
             ImageIcon icon = new ImageIcon(imgURL);
             Image img = icon.getImage();
             Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
