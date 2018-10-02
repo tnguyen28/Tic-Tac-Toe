@@ -38,6 +38,18 @@ public class tttGame{
             }
         });
         gamePanel.add(startComputer);
+
+        //Closes main menu and opens character select
+        JButton selectCharacter = new JButton("Select Character");
+        selectCharacter.addActionListener(new ActionListener(){
+        
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mainWindow.dispose();
+                //new characterScreen
+            }
+        });
+        gamePanel.add(selectCharacter);
     }
 
     public static void main(String[] args){
