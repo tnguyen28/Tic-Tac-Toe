@@ -14,7 +14,7 @@ public class tttGame{
         mainWindow.setVisible(true);
         mainWindow.setSize(400, 400);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        centerFrame(mainWindow);
         gamePanel.setLayout(new GridLayout(3,1));
         mainWindow.add(gamePanel);
         gamePanel.add(headerLabel);
@@ -46,10 +46,19 @@ public class tttGame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainWindow.dispose();
-                //new characterScreen
+                new characterSelect();
             }
         });
         gamePanel.add(selectCharacter);
+    }
+
+    public static void centerFrame(JFrame frame){
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int w = frame.getSize().width;
+        int h = frame.getSize().height;
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        frame.setLocation(x, y);
     }
 
     public static void main(String[] args){
