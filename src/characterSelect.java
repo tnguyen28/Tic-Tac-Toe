@@ -1,12 +1,20 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.*;
 import javax.swing.*;
+import java.io.*;
+import java.util.*;
 
 
-public class characterSelect {
+public class characterSelect extends JFrame implements ActionListener {
     private JFrame f = new JFrame("Character Select");
+    private JButton c1,c2,c3,c4,c5,c6,c7,c8,c9;
+
+    public String xImage = "/images/redX.jpg";
+    public String oImage = "/images/blue.jpg";
 
     //Checks if the tile has already been pressed
     Boolean b1Check = false;
@@ -23,26 +31,26 @@ public class characterSelect {
         JPanel panel = (JPanel)f.getContentPane();
         panel.setLayout(new GridLayout(3,3,4,3));
 
-        JButton c1 = new JButton();
-        JButton c2 = new JButton();
-        JButton c3 = new JButton();
-        JButton c4 = new JButton();
-        JButton c5 = new JButton();
-        JButton c6 = new JButton();
-        JButton c7 = new JButton();
-        JButton c8 = new JButton();
-        JButton c9 = new JButton();
+        c1 = new JButton();
+        c2 = new JButton();
+        c3 = new JButton();
+        c4 = new JButton();
+        c5 = new JButton();
+        c6 = new JButton();
+        c7 = new JButton();
+        c8 = new JButton();
+        c9 = new JButton();
 
         //Allows button to take action when pressed
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
-        b4.addActionListener(this);
-        b5.addActionListener(this);
-        b6.addActionListener(this);
-        b7.addActionListener(this);
-        b8.addActionListener(this);
-        b9.addActionListener(this);
+        c1.addActionListener(this);
+        c2.addActionListener(this);
+        c3.addActionListener(this);
+        c4.addActionListener(this);
+        c5.addActionListener(this);
+        c6.addActionListener(this);
+        c7.addActionListener(this);
+        c8.addActionListener(this);
+        c9.addActionListener(this);
 
         panel.add(c1);
         panel.add(c2);
@@ -61,5 +69,11 @@ public class characterSelect {
         f.getContentPane().setBackground(Color.BLACK);
         f.setVisible(true);
         tttGame.centerFrame(f);
+    }
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        if(ae.getSource() == c1){
+            //SET IMAGE TO CHARACTER
+        }
     }
 }

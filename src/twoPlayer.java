@@ -15,8 +15,10 @@ public class twoPlayer extends JFrame implements ActionListener{
     private JLabel playerLabel;
     private String playerTurn = "x";
 
-    String imageX = "/images/redX.jpg";
-    String imageO = "/images/blue.jpg";
+    characterSelect c = new characterSelect();
+
+    String imageX = c.xImage;
+    String imageO = c.oImage;
 
     //Checks if the tile has already been pressed
     Boolean b1Check = false;
