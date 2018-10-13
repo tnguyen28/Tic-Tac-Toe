@@ -15,11 +15,6 @@ public class twoPlayer extends JFrame implements ActionListener{
     private JLabel playerLabel;
     private String playerTurn = "x";
 
-    characterSelect c = new characterSelect();
-
-    String imageX = c.xImage;
-    String imageO = c.oImage;
-
     //Checks if the tile has already been pressed
     Boolean b1Check = false;
     Boolean b2Check = false;
@@ -31,7 +26,13 @@ public class twoPlayer extends JFrame implements ActionListener{
     Boolean b8Check = false;
     Boolean b9Check = false;
 
+    characterSelect c = new characterSelect();
+
+    String imageX = c.xImage;
+    String imageO = c.oImage;   
+
     public twoPlayer() {
+
         populateBoard(gameBoard);
 
         //Allows players to click a tile to draw their turn
@@ -218,16 +219,13 @@ public class twoPlayer extends JFrame implements ActionListener{
     public void buttonPressed(JButton button){
         count++;
         if(playerTurn.equals("x")) {
-            changeXImage(button, imageX);
+            changeXImage(button);
             messageHandler.playerOMessage();
             checkForWinner();
             playerTurn = "o";
             playerLabel.setText("player o's turn");
-
-
-
         } else if(playerTurn.equals("o")){
-            changeOImage(button, imageO);
+            changeOImage(button);
             messageHandler.playerXMessage();
             checkForWinner();
             playerTurn = "x";
@@ -249,9 +247,10 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
     
     //Changes the buttton's icon image to corresponding turn
-    public void changeOImage(JButton b, String character){
+    public void changeOImage(JButton b){
         try{
-            java.net.URL imgURL = getClass().getResource(character);
+            characterSelect c = new characterSelect();
+            java.net.URL imgURL = getClass().getResource(c.oImage);
             ImageIcon icon = new ImageIcon(imgURL);
             Image img = icon.getImage();
             Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
@@ -264,7 +263,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }
 
     }
-    public void changeXImage(JButton b, String character){
+    public void changeXImage(JButton b){
         try{
             java.net.URL imgURL = getClass().getResource(character);
             ImageIcon icon = new ImageIcon(imgURL);
@@ -278,6 +277,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         
         }
     }
+
     public void populateBoard(String[][] board){
         board[0][0]= "not used";
         board[0][1]= "not used";

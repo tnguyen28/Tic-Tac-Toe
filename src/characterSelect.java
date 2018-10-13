@@ -14,11 +14,8 @@ public class characterSelect extends JFrame implements ActionListener {
     private JButton c1,c2,c3,c4,c5,c6,c7,c8,c9;
     private JLabel characterLabel;
 
-    public String xImage = "/images/redX.jpg";
-    public String oImage = "/images/blue.jpg";
 
-    public twoPlayer tp = new twoPlayer();
-
+    
     //Checks if the tile has already been pressed
     Boolean c1Check = false;
     Boolean c2Check = false;
@@ -33,7 +30,10 @@ public class characterSelect extends JFrame implements ActionListener {
     Boolean turnChange = false;
 
     public characterSelect() {
-        
+        String xImage = "/images/redX.jpg";
+        String oImage = "/images/blue.jpg";
+
+        twoPlayer tp = new twoPlayer();
         JPanel panel = (JPanel)f.getContentPane();
         panel.setLayout(new GridLayout(3,3,4,3));
 
@@ -73,6 +73,16 @@ public class characterSelect extends JFrame implements ActionListener {
         panel.add(characterLabel);
         characterLabel.setText("Choose player X's character");
 
+        // tp.changeXImage(c1, "/images/redX.jpg");
+        // tp.changeXImage(c2, "/images/blue.jpg");
+        // tp.changeXImage(c3, "/images/grunge.jpeg");
+        // tp.changeXImage(c4, "/images/link.png");
+        // tp.changeXImage(c5, "/images/megaman.png");
+        // tp.changeXImage(c6, "/images/moon.jpeg");
+        // tp.changeXImage(c7, "/images/pumpkin.jpeg");
+        // tp.changeXImage(c8, "/images/whitefigure.png");
+        // tp.changeXImage(c9, "/images/wizard.jpeg");
+
         c1.setPreferredSize(new Dimension(100,100));
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,7 +90,6 @@ public class characterSelect extends JFrame implements ActionListener {
         f.getContentPane().setBackground(Color.BLACK);
         f.setVisible(true);
         tttGame.centerFrame(f);
-
         
     }
     @Override
