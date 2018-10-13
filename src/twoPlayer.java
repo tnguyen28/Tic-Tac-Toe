@@ -218,7 +218,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     public void buttonPressed(JButton button){
         count++;
         if(playerTurn.equals("x")) {
-            changeXImage(button);
+            changeXImage(button, imageX);
             messageHandler.playerOMessage();
             checkForWinner();
             playerTurn = "o";
@@ -227,7 +227,7 @@ public class twoPlayer extends JFrame implements ActionListener{
 
 
         } else if(playerTurn.equals("o")){
-            changeOImage(button);
+            changeOImage(button, imageO);
             messageHandler.playerXMessage();
             checkForWinner();
             playerTurn = "x";
@@ -249,9 +249,9 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
     
     //Changes the buttton's icon image to corresponding turn
-    public void changeOImage(JButton b){
+    public void changeOImage(JButton b, String character){
         try{
-            java.net.URL imgURL = getClass().getResource(imageO);
+            java.net.URL imgURL = getClass().getResource(character);
             ImageIcon icon = new ImageIcon(imgURL);
             Image img = icon.getImage();
             Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
@@ -264,9 +264,9 @@ public class twoPlayer extends JFrame implements ActionListener{
         }
 
     }
-    public void changeXImage(JButton b){
+    public void changeXImage(JButton b, String character){
         try{
-            java.net.URL imgURL = getClass().getResource(imageX);
+            java.net.URL imgURL = getClass().getResource(character);
             ImageIcon icon = new ImageIcon(imgURL);
             Image img = icon.getImage();
             Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
