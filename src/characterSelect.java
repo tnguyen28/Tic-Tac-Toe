@@ -17,6 +17,8 @@ public class characterSelect extends JFrame implements ActionListener {
     public String xImage = "/images/redX.jpg";
     public String oImage = "/images/blue.jpg";
 
+    public twoPlayer tp = new twoPlayer();
+
     //Checks if the tile has already been pressed
     Boolean c1Check = false;
     Boolean c2Check = false;
@@ -28,7 +30,10 @@ public class characterSelect extends JFrame implements ActionListener {
     Boolean c8Check = false;
     Boolean c9Check = false;
 
+    Boolean turnChange = false;
+
     public characterSelect() {
+        
         JPanel panel = (JPanel)f.getContentPane();
         panel.setLayout(new GridLayout(3,3,4,3));
 
@@ -75,11 +80,83 @@ public class characterSelect extends JFrame implements ActionListener {
         f.getContentPane().setBackground(Color.BLACK);
         f.setVisible(true);
         tttGame.centerFrame(f);
+
+        
     }
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == c1){
-            //SET IMAGE TO CHARACTER
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+         }
+        if(ae.getSource() == c2){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
         }
+        if(ae.getSource() == c3){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+        }
+        if(ae.getSource() == c4){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+        }
+        if(ae.getSource() == c5){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+        }
+        if(ae.getSource() == c6){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+        }
+        if(ae.getSource() == c7){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+        }
+        if(ae.getSource() == c8){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+        }
+        if(ae.getSource() == c9){
+            if(turnChange == false){
+                xImage = "";
+                turnChange = true;
+            } else if(turnChange == true){
+                oImage = "";
+            }
+        }
+
     }
 }
