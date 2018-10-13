@@ -12,20 +12,21 @@ import java.util.*;
 public class characterSelect extends JFrame implements ActionListener {
     private JFrame f = new JFrame("Character Select");
     private JButton c1,c2,c3,c4,c5,c6,c7,c8,c9;
+    private JLabel characterLabel;
 
     public String xImage = "/images/redX.jpg";
     public String oImage = "/images/blue.jpg";
 
     //Checks if the tile has already been pressed
-    Boolean b1Check = false;
-    Boolean b2Check = false;
-    Boolean b3Check = false;
-    Boolean b4Check = false;
-    Boolean b5Check = false;
-    Boolean b6Check = false;
-    Boolean b7Check = false;
-    Boolean b8Check = false;
-    Boolean b9Check = false;
+    Boolean c1Check = false;
+    Boolean c2Check = false;
+    Boolean c3Check = false;
+    Boolean c4Check = false;
+    Boolean c5Check = false;
+    Boolean c6Check = false;
+    Boolean c7Check = false;
+    Boolean c8Check = false;
+    Boolean c9Check = false;
 
     public characterSelect() {
         JPanel panel = (JPanel)f.getContentPane();
@@ -40,6 +41,9 @@ public class characterSelect extends JFrame implements ActionListener {
         c7 = new JButton();
         c8 = new JButton();
         c9 = new JButton();
+
+        characterLabel = new JLabel();
+        characterLabel.setForeground(Color.RED);
 
         //Allows button to take action when pressed
         c1.addActionListener(this);
@@ -61,6 +65,8 @@ public class characterSelect extends JFrame implements ActionListener {
         panel.add(c7);
         panel.add(c8);
         panel.add(c9);
+        panel.add(characterLabel);
+        characterLabel.setText("Choose player X's character");
 
         c1.setPreferredSize(new Dimension(100,100));
 
