@@ -97,27 +97,54 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
 
     public void characterSelect(JFrame cFrame, JFrame tFrame){
-        String[] xCharaters = new String[] {"/images/redX.jpg", "/images/blue.jpg"};
-        String[] oCharaters = new String[] {"/images/grunge.jpeg", "/images/link.jpg"};
+        String[] xCharaters = new String[] {"red x", "link", "moon"};
+        String[] oCharaters = new String[] {"blue o","grunge"};
         JComboBox<String> xC = new JComboBox<>(xCharaters);
         JComboBox<String> oC = new JComboBox<>(oCharaters);
 
         xC.setBounds(50, 50, 150, 20);
         oC.setBounds(250, 50, 150, 20);
 
+        ActionListener XselectionListener = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String x = (String) xC.getSelectedItem();
+                switch(x){
+                    case "red x": imageX = "/images/redX.jpg";
+                        break;
+                    case "link": imageX = "/images/link.png";
+                        break;
+                    case "moon": imageX = "/images/moon.jpeg";
+                        break;
+                }
+                System.out.println(imageX);
+            }
+        };
+        ActionListener OselectionListener = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String o = (String) oC.getSelectedItem();
+                switch(o){
+                    case "blue o": imageO = "/images/blue.jpg";
+                        break;
+                    case "grunge": imageO = "/images/grunge.jpeg";
+                        break;
+                }
+                System.out.println(imageO);
+            }
+        };
+        xC.addActionListener(XselectionListener);
+        oC.addActionListener(OselectionListener);
+
         cFrame.add(xC);
         cFrame.add(oC);
 
-        String selectedX = (String) xC.getSelectedItem();
-        String selectedO = (String) oC.getSelectedItem();
 
         JButton b = new JButton("Submit Characters");
         b.setBounds(cFrame.getWidth()/2, 100, 150, 20);
         cFrame.add(b);
         b.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                imageX = selectedX;
-                imageO = selectedO;
                 messageHandler.charactersSelected(cFrame, tFrame);
             }
         });
