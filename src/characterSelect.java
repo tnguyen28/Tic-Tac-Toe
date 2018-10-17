@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
-
+//CLASS CURRENTLY IS INACTIVE DUE TO BETTER WAY OF USING THIS IMPLEMENTATION
 public class characterSelect extends JFrame implements ActionListener {
     private JFrame f = new JFrame("Character Select");
     private JButton c1,c2,c3,c4,c5,c6,c7,c8,c9;
