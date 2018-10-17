@@ -99,8 +99,8 @@ public class twoPlayer extends JFrame implements ActionListener{
 
     //Creates a frame to allow players to choose characters
     public void characterSelect(JFrame cFrame, JFrame tFrame){
-        String[] xCharaters = new String[] {"red x", "link", "moon"};
-        String[] oCharaters = new String[] {"blue o","grunge"};
+        String[] xCharaters = new String[] {"red x", "link", "moon","pumpkin","wizard"};
+        String[] oCharaters = new String[] {"blue o","grunge","megaman","white figure"};
         JComboBox<String> xC = new JComboBox<>(xCharaters);
         JComboBox<String> oC = new JComboBox<>(oCharaters);
 
@@ -124,7 +124,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                     case "wizard": imageX = "/images/wizard.jpeg";
                         break;
                 }
-                System.out.println(imageX);
+                
             }
         };
         ActionListener OselectionListener = new ActionListener(){
@@ -142,7 +142,7 @@ public class twoPlayer extends JFrame implements ActionListener{
                         break;
 
                 }
-                System.out.println(imageO);
+                
             }
         };
         xC.addActionListener(XselectionListener);
@@ -329,7 +329,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     public void changeOImage(JButton b){
        //String imageO = c.getOCharacter();
  
-       System.out.println(imageO);
+
         try{
             //characterSelect c = new characterSelect();
             java.net.URL imgURL = getClass().getResource(imageO);
@@ -348,7 +348,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     public void changeXImage(JButton b){
        // String imageX = c.getXCharacter();
 
-        System.out.println(imageX);
+       
         try{
             java.net.URL imgURL = getClass().getResource(imageX);
             ImageIcon icon = new ImageIcon(imgURL);
@@ -373,7 +373,6 @@ public class twoPlayer extends JFrame implements ActionListener{
         board[2][0]= "not used";
         board[2][1]= "not used";
         board[2][2]= "not used";
-        System.out.println("Board populated");
     }
     public Boolean boardFull(){
         if(b1Check == true 
