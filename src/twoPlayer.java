@@ -327,9 +327,6 @@ public class twoPlayer extends JFrame implements ActionListener{
     
     //Changes the buttton's icon image to corresponding turn
     public void changeOImage(JButton b){
-       //String imageO = c.getOCharacter();
- 
-
         try{
             //characterSelect c = new characterSelect();
             java.net.URL imgURL = getClass().getResource(imageO);
@@ -346,9 +343,6 @@ public class twoPlayer extends JFrame implements ActionListener{
 
     }
     public void changeXImage(JButton b){
-       // String imageX = c.getXCharacter();
-
-       
         try{
             java.net.URL imgURL = getClass().getResource(imageX);
             ImageIcon icon = new ImageIcon(imgURL);
@@ -363,6 +357,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         }
     }
 
+    //populates an empty board that communicates directly with the actual gamae
     public void populateBoard(String[][] board){
         board[0][0]= "not used";
         board[0][1]= "not used";
@@ -374,6 +369,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         board[2][1]= "not used";
         board[2][2]= "not used";
     }
+    //game tie check
     public Boolean boardFull(){
         if(b1Check == true 
             && b2Check == true
