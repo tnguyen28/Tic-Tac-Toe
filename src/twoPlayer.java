@@ -16,6 +16,9 @@ public class twoPlayer extends JFrame implements ActionListener{
     private JLabel playerLabel;
     private String playerTurn = "x";
 
+    String imageX = "/images/redX.jpg";
+    String imageO = "/images/blue.jpg";     
+
     //Checks if the tile has already been pressed
     Boolean b1Check = false;
     Boolean b2Check = false;
@@ -94,8 +97,8 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
 
     public void characterSelect(JFrame cFrame, JFrame tFrame){
-        String[] xCharaters = new String[] {"man", "woman"};
-        String[] oCharaters = new String[] {"yo", "oy"};
+        String[] xCharaters = new String[] {"/images/redX.jpg", "/images/blue.jpg"};
+        String[] oCharaters = new String[] {"/images/grunge.jpeg", "/images/link.jpg"};
         JComboBox<String> xC = new JComboBox<>(xCharaters);
         JComboBox<String> oC = new JComboBox<>(oCharaters);
 
@@ -107,8 +110,17 @@ public class twoPlayer extends JFrame implements ActionListener{
 
         String selectedX = (String) xC.getSelectedItem();
         String selectedO = (String) oC.getSelectedItem();
-        //Select both characters
-        //make player frame visible
+
+        JButton b = new JButton("Submit Characters");
+        b.setBounds(cFrame.getWidth()/2, 100, 150, 20);
+        cFrame.add(b);
+        b.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                imageX = selectedX;
+                imageO = selectedO;
+                messageHandler.charactersSelected(cFrame, tFrame);
+            }
+        });
 
     }
     //button interactions
@@ -276,7 +288,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     //Changes the buttton's icon image to corresponding turn
     public void changeOImage(JButton b){
        //String imageO = c.getOCharacter();
-       String imageO = "/images/blue.jpg";  
+ 
        System.out.println(imageO);
         try{
             //characterSelect c = new characterSelect();
@@ -295,7 +307,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     }
     public void changeXImage(JButton b){
        // String imageX = c.getXCharacter();
-       String imageX = "/images/redX.jpg";
+
         System.out.println(imageX);
         try{
             java.net.URL imgURL = getClass().getResource(imageX);
