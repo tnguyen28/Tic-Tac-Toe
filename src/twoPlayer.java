@@ -16,6 +16,7 @@ public class twoPlayer extends JFrame implements ActionListener{
     private JLabel playerLabel;
     private String playerTurn = "x";
 
+    //default icons set to x and o
     String imageX = "/images/redX.jpg";
     String imageO = "/images/blue.jpg";     
 
@@ -96,6 +97,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         frame.getContentPane().setBackground(Color.BLACK);
     }
 
+    //Creates a frame to allow players to choose characters
     public void characterSelect(JFrame cFrame, JFrame tFrame){
         String[] xCharaters = new String[] {"red x", "link", "moon"};
         String[] oCharaters = new String[] {"blue o","grunge"};
@@ -105,6 +107,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         xC.setBounds(50, 50, 150, 20);
         oC.setBounds(250, 50, 150, 20);
 
+        //Allows drop down box to communicate with the game to change characters
         ActionListener XselectionListener = new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -149,6 +152,7 @@ public class twoPlayer extends JFrame implements ActionListener{
         cFrame.add(oC);
 
 
+        //Submits the characters and begins the game
         JButton b = new JButton("Submit Characters");
         b.setBounds(cFrame.getWidth()/2, 100, 150, 20);
         cFrame.add(b);
