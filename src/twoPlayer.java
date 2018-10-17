@@ -8,6 +8,7 @@ import java.util.*;
 
 public class twoPlayer extends JFrame implements ActionListener{
     private JFrame playerFrame = new JFrame("Two player mode");
+    private JFrame characterFrame = new JFrame("Character Select");
     private String[][] gameBoard = new String[3][3];
     private int count = 0;
 
@@ -26,13 +27,9 @@ public class twoPlayer extends JFrame implements ActionListener{
     Boolean b8Check = false;
     Boolean b9Check = false;
 
-    characterSelect c = new characterSelect();
-
-    String imageX = c.xImage;
-    String imageO = c.oImage;   
+   // characterSelect c = new characterSelect();
 
     public twoPlayer() {
-
         populateBoard(gameBoard);
 
         //Allows players to click a tile to draw their turn
@@ -76,12 +73,42 @@ public class twoPlayer extends JFrame implements ActionListener{
         //sets the size for first button which defaults the others to the same size
         b1.setPreferredSize(new Dimension(100,100));
 
-        playerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setCustomFrame(characterFrame);
+        characterSelect(characterFrame, playerFrame);
+        characterFrame.setVisible(true);
+
+
+        setCustomFrame(playerFrame);
         playerFrame.setLayout(new GridLayout(4,3,3,3));
-        playerFrame.setSize(500,500);
-        playerFrame.getContentPane().setBackground(Color.BLACK);
-        playerFrame.setVisible(true);
+        //playerFrame.setVisible(true);
+
         tttGame.centerFrame(playerFrame);
+        tttGame.centerFrame(characterFrame);
+    }
+
+    public void setCustomFrame(JFrame frame){
+        frame.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500,500);
+        frame.getContentPane().setBackground(Color.BLACK);
+    }
+
+    public void characterSelect(JFrame cFrame, JFrame tFrame){
+        String[] xCharaters = new String[] {"man", "woman"};
+        String[] oCharaters = new String[] {"yo", "oy"};
+        JComboBox<String> xC = new JComboBox<>(xCharaters);
+        JComboBox<String> oC = new JComboBox<>(oCharaters);
+
+        xC.setBounds(50, 50, 150, 20);
+        oC.setBounds(250, 50, 150, 20);
+
+        cFrame.add(xC);
+        cFrame.add(oC);
+
+        String selectedX = (String) xC.getSelectedItem();
+        String selectedO = (String) oC.getSelectedItem();
+        //Select both characters
+        //make player frame visible
 
     }
     //button interactions
@@ -248,9 +275,12 @@ public class twoPlayer extends JFrame implements ActionListener{
     
     //Changes the buttton's icon image to corresponding turn
     public void changeOImage(JButton b){
+       //String imageO = c.getOCharacter();
+       String imageO = "/images/blue.jpg";  
+       System.out.println(imageO);
         try{
-            characterSelect c = new characterSelect();
-            java.net.URL imgURL = getClass().getResource(c.oImage);
+            //characterSelect c = new characterSelect();
+            java.net.URL imgURL = getClass().getResource(imageO);
             ImageIcon icon = new ImageIcon(imgURL);
             Image img = icon.getImage();
             Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);
@@ -264,8 +294,11 @@ public class twoPlayer extends JFrame implements ActionListener{
 
     }
     public void changeXImage(JButton b){
+       // String imageX = c.getXCharacter();
+       String imageX = "/images/redX.jpg";
+        System.out.println(imageX);
         try{
-            java.net.URL imgURL = getClass().getResource(character);
+            java.net.URL imgURL = getClass().getResource(imageX);
             ImageIcon icon = new ImageIcon(imgURL);
             Image img = icon.getImage();
             Image scaledImg = img.getScaledInstance(100,100, java.awt.Image.SCALE_SMOOTH);

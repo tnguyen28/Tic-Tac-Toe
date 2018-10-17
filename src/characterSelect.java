@@ -14,7 +14,8 @@ public class characterSelect extends JFrame implements ActionListener {
     private JButton c1,c2,c3,c4,c5,c6,c7,c8,c9;
     private JLabel characterLabel;
 
-
+    String xImage = "/images/redX.jpg";
+    String oImage = "/images/blue.jpg";
     
     //Checks if the tile has already been pressed
     Boolean c1Check = false;
@@ -30,10 +31,6 @@ public class characterSelect extends JFrame implements ActionListener {
     Boolean turnChange = false;
 
     public characterSelect() {
-        String xImage = "/images/redX.jpg";
-        String oImage = "/images/blue.jpg";
-
-        twoPlayer tp = new twoPlayer();
         JPanel panel = (JPanel)f.getContentPane();
         panel.setLayout(new GridLayout(3,3,4,3));
 
@@ -73,16 +70,6 @@ public class characterSelect extends JFrame implements ActionListener {
         panel.add(characterLabel);
         characterLabel.setText("Choose player X's character");
 
-        // tp.changeXImage(c1, "/images/redX.jpg");
-        // tp.changeXImage(c2, "/images/blue.jpg");
-        // tp.changeXImage(c3, "/images/grunge.jpeg");
-        // tp.changeXImage(c4, "/images/link.png");
-        // tp.changeXImage(c5, "/images/megaman.png");
-        // tp.changeXImage(c6, "/images/moon.jpeg");
-        // tp.changeXImage(c7, "/images/pumpkin.jpeg");
-        // tp.changeXImage(c8, "/images/whitefigure.png");
-        // tp.changeXImage(c9, "/images/wizard.jpeg");
-
         c1.setPreferredSize(new Dimension(100,100));
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,78 +79,93 @@ public class characterSelect extends JFrame implements ActionListener {
         tttGame.centerFrame(f);
         
     }
+
+    public String getXCharacter(){
+        return xImage;
+    }
+    public String getOCharacter(){
+        return oImage;
+    }
     @Override
     public void actionPerformed(ActionEvent ae) {
         if(ae.getSource() == c1){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/redX.jpg";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/redX.jpg";
             }
          }
         if(ae.getSource() == c2){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/blue.jpg";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/blue.jpg";
+
             }
         }
         if(ae.getSource() == c3){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/grunge.jpeg";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/grunge.jpeg";
+
             }
         }
         if(ae.getSource() == c4){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/link.png";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/link.png";
+
             }
         }
         if(ae.getSource() == c5){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/megaman.png";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/megaman.png";
+
             }
         }
         if(ae.getSource() == c6){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/moon.jpeg";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/moon.jpeg";
+
             }
         }
         if(ae.getSource() == c7){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/pumpkin.jpeg";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/pumpkin.jpeg";
+
             }
         }
         if(ae.getSource() == c8){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/whitefigure.png";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/whitefigure.png";
+
             }
         }
         if(ae.getSource() == c9){
             if(turnChange == false){
-                xImage = "";
+                xImage = "/images/wizard.jpeg";
                 turnChange = true;
             } else if(turnChange == true){
-                oImage = "";
+                oImage = "/images/wizard.jpeg";
+
             }
         }
 
