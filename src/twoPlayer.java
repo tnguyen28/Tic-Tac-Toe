@@ -116,6 +116,10 @@ public class twoPlayer extends JFrame implements ActionListener{
                         break;
                     case "moon": imageX = "/images/moon.jpeg";
                         break;
+                    case "pumpkin": imageX = "/images/pumpkin.jpeg";
+                        break;
+                    case "wizard": imageX = "/images/wizard.jpeg";
+                        break;
                 }
                 System.out.println(imageX);
             }
@@ -129,6 +133,11 @@ public class twoPlayer extends JFrame implements ActionListener{
                         break;
                     case "grunge": imageO = "/images/grunge.jpeg";
                         break;
+                    case "megaman": imageO = "/images/megaman.png";
+                        break;
+                    case "white figure": imageO = "/images/whitefigure.png";
+                        break;
+
                 }
                 System.out.println(imageO);
             }
